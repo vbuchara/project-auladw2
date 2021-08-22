@@ -1,0 +1,22 @@
+{
+  "name": "Projeto-AulaDW2",
+  "version": "1.0.0",
+  "description": "Projeto para Aula de Desenvolvimento Web",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node ./server.js"
+  },
+  "author": "vbuchara",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/node": "^7.14.9",
+    "@babel/preset-env": "^7.15.0",
+    "express": "4.16.3",
+    "pg": "^8.7.1"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.12"
+  }
+}

@@ -1,0 +1,24 @@
+main > div {
+  margin: 0 auto;
+  flex-basis: 40%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 10em;
+  gap: 1em;
+}
+
+main > div > h1{
+  font-size: 2em;
+  white-space: nowrap;
+}
+
+main > div > p{
+  font-size: 1.5em;
+}
+
+@media only screen and (max-width: 800px){
+  main > div {
+    padding-top: 2em;
+  }
+}
