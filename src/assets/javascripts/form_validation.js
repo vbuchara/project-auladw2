@@ -64,7 +64,7 @@ async function validateForm(event){
     phone_label.classList.remove('error-message');
   }
 
-  if(cpf_res.length !== 11){
+  if(cpf_res.length !== 11 && document.getElementsByName('responsible_cpf')[0].hasAttribute("required")){
     cpf_res_label.innerHTML = 'CPF deve conter 11 dígitos. Exemplo: 09182736455';
     document.getElementById('nome').scrollIntoView();
     cpf_res_label.classList.add('error-message');

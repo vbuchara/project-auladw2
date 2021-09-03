@@ -1,7 +1,18 @@
 const express = require('express');
+const multer = require('multer');
 const path = require('path');
 
+const storage = multer.diskStorage({
+  destination: (request, file, cb) => {
+    cb(null, 'uploads/');
+  },
+  filename: (request, file, cb) => {
+    cb(null, file.originalname);
+  }
+});
+
 const app = express();
+const upload = multer({ storage });
 
 app.use(express.json());
 app.use(express.urlencoded({
@@ -23,7 +34,7 @@ app.get('/album_form', (request, response) => {
   response.sendFile(path.join(__dirname, '../pages/album_form/index.html'));
 });
 
-app.post('/album_form', async(request, response) => {
+app.post('/album_form', upload.single('photo'), async(request, response) => {
   const query = `INSERT INTO album_digital
                   (nome, cpf, telwhats, email, estado, cidade, datanascimento, nomeresponsavel, 
                     cpfresponsavel, titulofoto, nomefotografo, nomefoto)
@@ -31,7 +42,7 @@ app.post('/album_form', async(request, response) => {
   try{
     await pool.query(query, [request.body.name, request.body.cpf, request.body.phone, request.body.email, 
                               request.body.state, request.body.city, request.body.birth_date, request.body.responsible_name, 
-                              request.body.responsible_cpf, request.body.photo_title, request.body.photograph_name, request.body.photo]);
+                              request.body.responsible_cpf, request.body.photo_title, request.body.photograph_name, request.file.originalname]);
   } catch(err){
     console.log(err);
   }
