@@ -1,0 +1,107 @@
+extends header
+
+block main
+  main
+    img(src="imgs/image1.jpeg", alt="image-form.png")
+    form(
+      name="album_form", 
+      action="/album_form", 
+      method="post", 
+      onsubmit="return validateForm(event)", 
+      enctype="multipart/form-data")
+      .form-group
+        label(for="nome") Nome:
+        input#nome(type="text", name="nome", required)
+      label#name-message(for="nome") Exemplo: Fulano Ciclano
+      .form-group
+        label(for="cpf") CPF:
+        input#cpf(type="number", name="cpf", required)
+      label#cpf_message(for="cpf") Exemplo: 09182736455
+      .form-group
+        label(for="email") Email:
+        input#email(type="email", name="email", required)
+      label#email_message(for="email") Exemplo: fulano.ciclano@email.com
+      .form-group
+        label(for="telefone") Telefone/Whatsapp:
+        input#telefone(type="tel", name="telwhats", required)
+      label#phone_message(for="telefone") Exemplo: 67998765432
+      .form-group
+        label(for="estado") Estado:
+        select#estado(name="estado", required)
+          option(value="acre") AC
+          option(value="alagoas") AL
+          option(value="amapá") AP
+          option(value="amazonas") AM
+          option(value="bahia") BA
+          option(value="ceará") CE
+          option(value="goiás") GO
+          option(value="maranhão") MA
+          option(value="mato grosso") MT
+          option(value="mato grosso do sul", selected) MS
+          option(value="minas gerais") MG
+          option(value="pará") PA
+          option(value="paraíba") PB
+          option(value="paraná") PR
+          option(value="pernambuco") PE
+          option(value="piauí") PI
+          option(value="rio de janeiro") RJ
+          option(value="rio grande do norte") RN
+          option(value="rio grande do sul") RS
+          option(value="rondônia") RO
+          option(value="roraima") RR
+          option(value="santa catarina") SC
+          option(value="são paulo") SP
+          option(value="sergipe") SE
+          option(value="tocantins") TO
+          option(value="distrito federal") DF
+      .form-group
+        label(for="cidade") Cidade:
+        select#cidade(name="cidade", required)
+          option(value="campo grande") Campo Grande
+          option(value="aquidauana") Aquidauana
+      .form-group
+        label(for="data_nascimento") Data de Nascimento:
+        input#data_nascimento(type="date", name="data_nascimento", onchange="toggleDiv(event)", required)
+      .optional-inputs
+        label Para menores de idade
+        .form-group
+          label(for="nome_responsavel") Nome do Responsável:
+          input#nome_responsavel(type="text", name="nome_responsavel")
+        .form-group
+          label(for="cpf_responsavel") CPF do Responsável:
+          input#cpf_responsavel(type="text", name="cpf_responsavel")
+        label#cpf_res_message(for="cpf_responsavel") Exemplo: 09182736455
+      .form-group
+        label Objetivos:
+        textarea(rows="5", readonly).
+          O projeto tem como objetivo visibilizar a beleza a cultura e a ancestralidade negra existentes no Mato Grosso do Sul, historicamente apagados e fora dos padrões estéticos eurocêntricos.
+          Oportunizará assim, as discussões étnico-raciais capazes de qualificar e encorajar as professoras e professores a trabalharem com a problemática da população negra, em sala de aula, na tentativa de diminuir o arranjo da desigualdade existente no país.
+          Para isso, a partir das fotografias selecionadas para a mostra fotográfica, irá se elaborar um álbum de fotografias que ao ser finalizado, será direcionado para escolas públicas, com a intenção de contribuir com o debate da Lei 10.639/03 que determina o ensino de História e Cultura Afro-brasileira nas escolas.              
+      .form-group
+        label Regras:
+        textarea(rows="5", readonly).
+          🖤 Cada pessoa poderá participar com uma fotografia
+          🖤 A fotografia deve ser no formato digital JPG/JPEG
+          🖤 A fotografia poderá ser colorida ou preta e branco
+          🖤 A técnica para criação é livre mas precisa seguir o tema Beleza Negra Resiste
+          🖤 Cada pessoa só poderá ser premiada uma única vez
+          🖤 As fotografias serão selecionadas por um júri composto de pessoas pretas, que julgará a beleza negra a partir dos elementos que permitirão evidenciar as conexões com as raízes negras, com a ancestralidade negra, com a diáspora negra, com as pequenas Áfricas que existem em cada pessoa negra que vive em Mato Grosso do Sul
+          🖤 Toda fotografia deve ser encaminhada com a autorização de uso de imagem. A UFMS e o IFMS reservam para si, desde já, o direito incontestável de reproduzir as fotografias inscritas em seu material institucional a qualquer momento e por tempo indeterminado, dando os devidos créditos ao fotógrafo.               
+      .form-group
+        label(for="titulo_foto") Titulo da Foto:
+        input#titulo_foto(type="text", name="titulo_foto")
+      .form-group
+        label(for="nome_fotografo") Nome do Fotográfo:
+        input#nome_fotografo(type="text", name="nome_fotografo")
+      .form-group
+        label(for="foto") Foto:
+        input#foto(type="file", accept="image/*", name="photo")
+      .form-group
+        input#termo(type="checkbox", name="terms-accept", required)
+        label(for="termo")
+          | Li o 
+          a(href="/term.txt", target="_blank", rel="noopener noreferrer") termo
+          |  e autorizo o uso de minha imagem
+      button.submit-button Enviar
+  script(src="js/optional_inputs.js", type="text/javascript")
+  script(src="js/form_validation.js", type="text/javascript")

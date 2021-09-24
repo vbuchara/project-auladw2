@@ -7,13 +7,13 @@ async function validateForm(event){
   let email = document.forms['album_form']['email'].value;
   let email_label = document.getElementById('email_message');
   // Campo do Telefone
-  let phone = document.forms['album_form']['phone'].value.toString();
+  let phone = document.forms['album_form']['telwhats'].value.toString();
   let phone_label = document.getElementById('phone_message');
   //Campo do CPF do responsável
-  let cpf_res = document.forms['album_form']['responsible_cpf'].value.toString();
+  let cpf_res = document.forms['album_form']['cpf_responsavel'].value.toString();
   let cpf_res_label =  document.getElementById('cpf_res_message');
 
-  if(cpf.length !== 11){
+  if(cpf.length !== 11 && document.getElementsByName('cpf')[0].hasAttribute("required")){
     cpf_label.innerHTML = 'CPF deve conter 11 dígitos. Exemplo: 09182736455';
     document.getElementById('nome').scrollIntoView();
     cpf_label.classList.add('error-message');
@@ -64,7 +64,7 @@ async function validateForm(event){
     phone_label.classList.remove('error-message');
   }
 
-  if(cpf_res.length !== 11 && document.getElementsByName('responsible_cpf')[0].hasAttribute("required")){
+  if(cpf_res.length !== 11 && document.getElementsByName('cpf_responsavel')[0].hasAttribute("required")){
     cpf_res_label.innerHTML = 'CPF deve conter 11 dígitos. Exemplo: 09182736455';
     document.getElementById('nome').scrollIntoView();
     cpf_res_label.classList.add('error-message');
