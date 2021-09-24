@@ -9,11 +9,20 @@ class AlbumDigitalController {
         return [key, value];
       }
     }));
-    const nome_foto = request.file.originalname;
+    const nome_foto = request.file.filename;
 
     try{
       const newAlbumDigital = await album_digital.create({...dataAlbumDigital, nome_foto});
       return response.redirect('/album_form');
+    } catch(error){
+      return response.status(500).json(error);
+    }
+  }
+
+  static async getAllAlbumDigital(request, response){ 
+    try{
+      const dataAllAlbumDigital = await album_digital.findAll();
+      response.status(200).render('relatorio_album_digital', { data: dataAllAlbumDigital });
     } catch(error){
       return response.status(500).json(error);
     }

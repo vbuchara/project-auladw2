@@ -6,4 +6,5 @@ node_modules
 // Photo Uploads
 uploads/*
 
-pages/html
+src/pages/html/*
+

@@ -1,4 +1,15 @@
 extends header
 
+block css
+  link(rel="stylesheet", href="styles/relatorio.css", type="text/css")
+
 block main 
-  
+  main 
+    h1 Relatório - Álbum Digital
+    each album_digital in data
+      .register-row
+        img(alt="photo.png", src=`uploads/${album_digital.dataValues.nome_foto}`)
+        ul 
+          li= album_digital.dataValues.nome  
+          li Frase
+          li Autorização

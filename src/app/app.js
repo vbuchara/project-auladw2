@@ -13,6 +13,7 @@ app.use('/styles', express.static(path.join(__dirname, '../assets/styles/')));
 app.use('/imgs', express.static(path.join(__dirname, '../assets/images/')));
 app.use('/js', express.static(path.join(__dirname, '../assets/javascripts/')));
 app.use('/term.txt', express.static(path.join(__dirname, '../assets/term.txt')));
+app.use('/uploads', express.static(path.join(__dirname, '../../uploads/')));
 
 app.set('views', path.join(__dirname, '../pages'));
 app.set('view engine', 'pug');
