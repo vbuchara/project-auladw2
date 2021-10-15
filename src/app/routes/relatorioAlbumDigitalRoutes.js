@@ -1,13 +1,11 @@
 const { Router } = require('express');
-const multer = require('multer');
-const path = require('path');
 
 const AlbumDigitalController = require('../controllers/AlbumDigitalController');
-const storage = require('../../config/multerStoreConfig');
+const auth = require('../middlewares/auth');
 
 const router = Router();
-const upload = multer({ storage });
 
+// auth = Middleware para autenticação da rota. Desativado para livre acesso
 router.get('/relatorio', AlbumDigitalController.getAllAlbumDigital);
 
 module.exports = router;

@@ -5,13 +5,14 @@ block css
 
 block main
   main
-    img(src="imgs/image1.jpeg", alt="image-form.png")
+    img(src="imgs/image1.jpeg", alt="Representação Afro-Indígena Brasileira")
     form(
       name="album_form", 
       action="/album_form", 
       method="post", 
       onsubmit="return validateForm(event)", 
-      enctype="multipart/form-data")
+      enctype="multipart/form-data"
+    )
       .form-group
         label(for="nome") Nome:
         input#nome(type="text", name="nome", required)

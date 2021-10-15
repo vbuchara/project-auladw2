@@ -1,6 +1,7 @@
 const path = require('path');
 const albumDigitalRoutes = require('./albumDigitalRoutes');
 const relatorioAlbumDigitalRoutes = require('./relatorioAlbumDigitalRoutes');
+const usuarioRoutes = require('./usuarioRoutes');
 
 module.exports = (app) => {
   app.get('/', (request, response) => {
@@ -9,4 +10,5 @@ module.exports = (app) => {
 
   app.use(albumDigitalRoutes);
   app.use(relatorioAlbumDigitalRoutes);
+  app.use(usuarioRoutes);
 };

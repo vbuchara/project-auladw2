@@ -1,0 +1,29 @@
+main {
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 3em;
+}
+
+main form {
+  margin: 0;
+  flex-basis: 30%;
+}
+
+.form-group > label {
+  text-align: left;
+  flex-basis: 30% !important;
+}
+
+.form-group > input{
+  flex-basis: 70%;
+}
+
+img {
+  width: auto;
+  height: 100%;
+}
+
+.submit-button {
+  margin-top: 3em;
+}

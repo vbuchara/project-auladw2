@@ -1,0 +1,25 @@
+title Album Digital - Negritude em Debate
+meta(charset="utf-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+link(rel="stylesheet", href="styles/style.css", type="text/css")
+link(href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap", rel="stylesheet")
+link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+link(rel="stylesheet", href="styles/login.css", type="text/css")
+
+main
+  img(src="imgs/image1.jpeg", alt="Representação Afro-Indígena Brasileira")
+  form(
+    name="user_login",
+    action="/login",
+    method="post",
+    onsubmit="return validateForm(event)"
+  )
+    .form-group
+      label(for="usuario") Usuario:
+      input#usuario(type="text", name="login", required)
+    .form-group
+      label(for="senha") Senha:
+      input#senha(type="password", name="senha", required)
+    button.submit-button Logar
+
+script(src="js/toggle_menu.js", type="text/javascript")

@@ -5,15 +5,22 @@ function toggleDiv(event){
   let year = ageDate.getUTCFullYear();
   let age = Math.abs(year - 1970);
 
+  const optionInputs = document.getElementsByClassName('optional-inputs')[0];
+  const nomeResponsavel = document.getElementsByName('nome_responsavel')[0];
+  const cpfResponsavel = document.getElementsByName('cpf_responsavel')[0];
+  const cpf = document.getElementsByName('cpf')[0];
+
   if(age < 18){
-    document.getElementsByClassName('optional-inputs')[0].classList.add('show');
-    document.getElementsByName('nome_responsavel')[0].setAttribute('required', '');
-    document.getElementsByName('cpf_responsavel')[0].setAttribute('required', '');
-    document.getElementsByName('cpf')[0].removeAttribute('required');
+    optionInputs.classList.add('show');
+    nomeResponsavel.setAttribute('required', '');
+    cpfResponsavel.setAttribute('required', '');
+    cpf.removeAttribute('required');
   } else {
-    document.getElementsByClassName('optional-inputs')[0].classList.remove('show');
-    document.getElementsByName('nome_responsavel')[0].removeAttribute('required');
-    document.getElementsByName('cpf_responsavel')[0].removeAttribute('required');
-    document.getElementsByName('cpf')[0].setAttribute('required', '');
+    optionInputs.classList.remove('show');
+    nomeResponsavel.removeAttribute('required');
+    nomeResponsavel.value = '';
+    cpfResponsavel.removeAttribute('required');
+    cpfResponsavel.value = '';
+    cpf.setAttribute('required', '');
   }
 }

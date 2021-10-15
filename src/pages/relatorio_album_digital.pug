@@ -8,8 +8,42 @@ block main
     h1 Relatório - Álbum Digital
     each album_digital in data
       .register-row
-        img(alt="photo.png", src=`uploads/${album_digital.dataValues.nome_foto}`)
+        figure
+          img(alt="photo.png", src=`uploads/${album_digital.dataValues.nome_foto}`)
+          figcaption: b=album_digital.dataValues.titulo_foto
         ul 
-          li= album_digital.dataValues.nome  
+          li
+            b Nome: 
+            = album_digital.dataValues.nome
+          if album_digital.dataValues.cpf_responsavel
+            if album_digital.dataValues.cpf 
+              li
+                b CPF: 
+                = album_digital.dataValues.cpf 
+            li
+              b Responsavel: 
+              = album_digital.dataValues.nome_responsavel
+            li
+              b CPF do Responsavel: 
+              = album_digital.dataValues.cpf_responsavel
+          else 
+            li
+              b CPF: 
+              = album_digital.dataValues.cpf
+          li 
+            b Telefone: 
+            = album_digital.dataValues.telwhats
+          li 
+            b Email:  
+            = album_digital.dataValues.email
+          li 
+            b Cidade:  
+            = album_digital.dataValues.cidade
+          li 
+            b Data de Nascimento:  
+            = album_digital.dataValues.data_nascimento
+          li 
+            b Criado as: 
+            = album_digital.dataValues.createdAt 
           li Frase
           li Autorização

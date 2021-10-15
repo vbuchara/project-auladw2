@@ -18,7 +18,18 @@ main .register-row{
 .register-row > ul{
   list-style-position: inside;
 }
+
+.register-row figure {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 20%;
+}
+
 .register-row img{
-  width: 10%;
+  width: 100%;
   height: auto;
+}
+
+.register-row figcaption {
+  text-align: center;
 }

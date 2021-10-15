@@ -17,7 +17,7 @@ module.exports = {
         allowNull: true,
       },
       telwhats: {
-        type: Sequelize.STRING(20),
+        type: Sequelize.STRING(30),
         allowNull: false
       },
       email: {
