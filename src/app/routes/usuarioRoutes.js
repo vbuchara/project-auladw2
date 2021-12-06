@@ -6,6 +6,8 @@ const auth = require('../middlewares/auth');
 const router = Router();
 
 router.get('/login', (request, response) => { response.render('login'); });
+// É possivel alterar a função chamada por essa rota para cadastrar um usuário,
+// apenas troque "login" por "insertUsuario"
 router.post('/login', UsuarioController.login);
 
 module.exports = router;

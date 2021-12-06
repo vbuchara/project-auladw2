@@ -12,16 +12,29 @@ class UsuarioController {
     
     try{
       bcrypt.hash(dataUsuario.senha, 12, async function(err, hash) {
-        dataUsuario = Object.fromEntries(Object.entries(dataUsuario).map(([key, value]) => {
-          if(key === 'senha'){
-            return ['senha_hash', hash];
-          } else {
-            return [key, value];
-          }
-        }));
-
-        console.log(dataUsuario);
-        await usuario.create(dataUsuario);
+        /**
+         * Coloco o objeto dentro de um array, crio o novo atributo de senha_hash,
+         * utilizo da função map do array para retornar o objeto sem o campo "senha",
+         * e com campos formatados caso seja necessário
+         */
+        dataUsuario = [{
+          ...dataUsuario,
+          senha_hash: hash
+        }].map(({ login, senha, ...rest }) => {
+          return (login.includes("@") && login.includes(".com"))
+            ? {
+              ...rest,
+              email: login,
+              senha_hash: hash
+            }
+            : {
+              ...rest,
+              nome: login,
+              senha_hash: hash
+            }
+        });
+        
+        await usuario.create(dataUsuario[0]);
       });
 
       return response.redirect('/login');
