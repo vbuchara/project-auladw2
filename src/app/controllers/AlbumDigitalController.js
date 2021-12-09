@@ -10,9 +10,10 @@ class AlbumDigitalController {
       }
     }));
     const nome_foto = request.file.filename;
+    const estado = 'MS';
 
     try{
-      await album_digital.create({...dataAlbumDigital, nome_foto});
+      await album_digital.create({...dataAlbumDigital, nome_foto, estado});
       return response.redirect('/album_form');
     } catch(error){
       return response.status(500).json(error);

@@ -6,6 +6,9 @@ block css
 block main 
   main 
     h1 Relatório - Álbum Digital
+    .search-form
+      label(for="search") Pesquisar
+      input(id="search", type="search", value="")
     each album_digital in data
       .register-row
         figure
@@ -47,3 +50,4 @@ block main
             = album_digital.dataValues.createdAt 
           li Frase
           li Autorização
+  script(src="js/relatorio.js", type="text/javascript")

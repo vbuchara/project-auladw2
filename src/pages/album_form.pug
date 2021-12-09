@@ -1,7 +1,7 @@
 extends header
 
 block css
-  link(rel="stylesheet", href="styles/home.css", type="text/css")
+  link(rel="stylesheet", href="styles/album.css", type="text/css")
 
 block main
   main
@@ -30,39 +30,11 @@ block main
         input#telefone(type="tel", name="telwhats", required)
       label#phone_message(for="telefone") Exemplo: 67998765432
       .form-group
-        label(for="estado") Estado:
-        select#estado(name="estado", required)
-          option(value="acre") AC
-          option(value="alagoas") AL
-          option(value="amapá") AP
-          option(value="amazonas") AM
-          option(value="bahia") BA
-          option(value="ceará") CE
-          option(value="goiás") GO
-          option(value="maranhão") MA
-          option(value="mato grosso") MT
-          option(value="mato grosso do sul", selected) MS
-          option(value="minas gerais") MG
-          option(value="pará") PA
-          option(value="paraíba") PB
-          option(value="paraná") PR
-          option(value="pernambuco") PE
-          option(value="piauí") PI
-          option(value="rio de janeiro") RJ
-          option(value="rio grande do norte") RN
-          option(value="rio grande do sul") RS
-          option(value="rondônia") RO
-          option(value="roraima") RR
-          option(value="santa catarina") SC
-          option(value="são paulo") SP
-          option(value="sergipe") SE
-          option(value="tocantins") TO
-          option(value="distrito federal") DF
-      .form-group
         label(for="cidade") Cidade:
         select#cidade(name="cidade", required)
-          option(value="campo grande") Campo Grande
-          option(value="aquidauana") Aquidauana
+          each cidade in cidades
+            option(value=cidade)
+              = cidade
       .form-group
         label(for="data_nascimento") Data de Nascimento:
         input#data_nascimento(type="date", name="data_nascimento", onchange="toggleDiv(event)", required)

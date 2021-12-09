@@ -63,6 +63,10 @@ class UsuarioController {
           return response.redirect('/login');
         } 
         const token = jwt.sign({ id: user.id }, process.env.JWT_KEY, { expiresIn: '60m' });
+        response.cookie('token', token, { 
+          maxAge: 1000 * 60 * 60,  
+          httpOnly: true
+        });
         response.set('Authorization', token);
         return response.redirect('/relatorio');
       });

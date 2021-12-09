@@ -1,6 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const routes = require('./routes/router');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
@@ -8,6 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended: true
 }));
+app.use(cookieParser(process.env.COOKIE_SECRET));
 
 app.use('/styles', express.static(path.join(__dirname, '../assets/styles/')));
 app.use('/imgs', express.static(path.join(__dirname, '../assets/images/')));

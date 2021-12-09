@@ -1,3 +1,8 @@
+*{
+  font-weight: 300;
+  font-family: 'Poppins', sans-serif;
+}
+
 main {
   height: 100%;
   align-items: center;
@@ -8,6 +13,16 @@ main {
 main form {
   margin: 0;
   flex-basis: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.5em;
+}
+
+.form-group{
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5em;
 }
 
 .form-group > label {
@@ -17,6 +32,27 @@ main form {
 
 .form-group > input{
   flex-basis: 70%;
+  flex-basis: 60%;
+  outline: none;
+  font-family: inherit;
+  font-weight: 300;
+  background-color: #D8C593;
+  border: 1px solid #ccba8b;
+}
+
+.form-group > label{
+  white-space:pre-line;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: end;
+  flex-basis: 40%;;
+}
+
+.form-group > input{
+  width: 100%;
+  overflow: visible;
+  height: fit-content;
+  align-self: center;
 }
 
 img {
@@ -26,4 +62,17 @@ img {
 
 .submit-button {
   margin-top: 3em;
+  margin-top: 1em;
+  align-self: center;
+  margin-top: auto;
+  background-color: #D8C593;
+  border: 2px solid #ccba8b;
+  cursor: pointer;
+  padding: 0.5em;
+
+  transition: filter 0.5s;
+}
+
+.submit-button:hover {
+  filter: brightness(0.9);
 }

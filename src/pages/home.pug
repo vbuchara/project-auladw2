@@ -5,7 +5,34 @@ block css
 
 block main
   main
-    img(src="imgs/image1.jpeg", alt="Representação Afro-Indígena Brasileira")
-    div
-      h1 Negritude em Debate
-      p Descrição, etc...
+    section.sec-1
+      img(src="imgs/image1.jpeg", alt="Representação Afro-Indígena Brasileira")
+      div
+        h1 Negritude em Debate
+        p O projeto Negritude em Debate MS busca contribuir 
+          | para reflexão e valorização da cultura negra no Mato Grosso do Sul!
+        | !{ videos["apresentação"] }
+    section.sec-2
+      h1 Acompanhe algumas ações do Negritude em Debate 
+      .links
+        .card.video
+          h2 Mostra Fotográfica Beleza Negra Resiste 2020
+          | !{ videos["mostra_2020"] }
+        .card.video
+          h2 Palestras, oficinas e capacitação antirracista 
+          | !{ videos["palestras"] }
+        .card.post
+          h2 Semana da Consciência Negra
+          iframe(
+            src='https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmedia%2Fset%2F%3Fvanity%3Dnegritudeemdebatems%26set%3Da.398413992012099&width=auto&show_text=true&height=645&appId' 
+            width='auto' 
+            height='auto' 
+            scrolling='no' 
+            frameborder='0' 
+            allowfullscreen='true' 
+            allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
+          )
+
+
+
+      

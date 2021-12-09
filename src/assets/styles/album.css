@@ -1,0 +1,154 @@
+img{
+  width: auto;
+  height: auto;
+}
+
+main form{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 50%;
+  margin: 0 auto;
+  gap: 0.5em;
+}
+
+form > label, .optional-inputs > #cpf_res_message{
+  margin: -0.5em 0;
+  align-self: flex-end;
+  width: 60%;
+  padding-left: 0.3em;
+  font-size: 0.8em;
+  opacity: 0.8;
+  z-index: -5;
+}
+
+.error-message{
+  color: rgb(255, 61, 61);
+  font-weight: bold;
+}
+
+.error-message.animation{
+  animation: 0.3s linear 3 messageWarning;
+  -webkit-animation: 0.3s linear 3 messageWarning;
+}
+
+.optional-inputs .error-message{
+  color: initial;
+}
+
+.optional-inputs .error-message.animation{
+  animation: 0.3s linear 3 optionalMessageWarning;
+  -webkit-animation: 0.3s linear 3 optionalMessageWarning;
+}
+
+.form-group{
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5em;
+}
+
+.form-group > input, .form-group > select, .form-group > textarea{
+  flex-basis: 60%;
+  outline: none;
+  font-family: inherit;
+  font-weight: 300;
+  background-color: #D8C593;
+  border: 1px solid #ccba8b;
+}
+
+.form-group input::-webkit-outer-spin-button,
+.form-group input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  -moz-appearance: textfield;
+}
+
+.form-group > label{
+  white-space:pre-line;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: end;
+  flex-basis: 40%;;
+}
+
+.form-group > input{
+  width: 100%;
+  overflow: visible;
+  height: fit-content;
+  align-self: center;
+}
+
+.form-group > input[type=file]{
+  background-color: inherit;
+  border: 0;
+}
+
+form > .form-group:nth-last-of-type(1) > label{
+  flex-basis: auto;
+  text-align: left;
+  white-space: nowrap;
+}
+
+form > .form-group:nth-last-of-type(1) > label a{
+  flex-basis: auto;
+  text-align: left;
+  white-space: nowrap;
+  color: rgb(73, 73, 252);
+  text-decoration: underline;
+}
+
+.form-group > input[type=checkbox]{
+  flex-basis: auto;
+  width: fit-content;
+}
+
+.form-group > textarea{
+  resize: none;
+}
+
+.optional-inputs{
+  display: flex;
+  flex-direction: column;
+  background-color: #DD7631;
+  padding: 1em;
+  display: none;
+  visibility: hidden;
+  z-index: 0;
+}
+
+.optional-inputs.show{
+  display: flex;
+  visibility: visible;
+}
+
+.optional-inputs .form-group:nth-child(3) input, .optional-inputs .form-group:nth-child(3) label{
+  margin-top: 0.5em;
+}
+
+.optional-inputs > label{
+  margin: 0 auto;
+  margin-bottom: 0.3em;
+}
+
+.optional-inputs > #cpf_res_message{
+  margin: 0 0;
+}
+
+form button{
+  background-color: #D8C593;
+  border: 2px solid #ccba8b;
+  cursor: pointer;
+  padding: 0.5em;
+}
+
+.submit-button{
+  margin-top: 1em;
+  align-self: center;
+  margin-top: auto;
+}
+
+@media only screen and (max-width: 800px){
+  main form{
+    width: 100%;
+  }
+}
