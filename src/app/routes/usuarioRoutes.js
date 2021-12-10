@@ -11,4 +11,9 @@ router.get('/login', (request, response) => { response.render('login'); });
 // apenas troque "login" por "insertUsuario"
 router.post('/login', UsuarioController.login);
 
+router.get('/logout', (request, response) => {
+  response.clearCookie('token');
+  response.redirect('/');
+});
+
 module.exports = router;

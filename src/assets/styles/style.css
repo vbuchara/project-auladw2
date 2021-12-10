@@ -121,6 +121,26 @@ main{
   padding-top: 0.5em;
 }
 
+.menu-content a{
+  font-size: 1.2rem;
+}
+
+.logout{
+  font-size: 1rem;
+  color: var(--orange);
+  font-weight: 400;
+  border: 1px solid var(--white-2);
+  background-color: var(--white);
+  padding: 0.3rem;
+}
+
+.logout:hover{
+  color: var(--orange);
+  border: 1px solid var(--white-2);
+  background-color: var(--white);
+  filter: brightness(0.9);
+}
+
 @media only screen and (max-width: 800px){
   main {
     flex-direction: column;
@@ -131,7 +151,7 @@ main{
   }
 }
 
-@media only screen and (max-width: 650px){
+@media only screen and (max-width: 800px){
   header {
     flex-direction: column;
     align-items: flex-start;

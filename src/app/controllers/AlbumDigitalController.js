@@ -1,4 +1,5 @@
 const { album_digital } = require('../../models');
+const { Op } = require('sequelize');
 
 class AlbumDigitalController {
   static async insertAlbumDigital(request, response){
@@ -23,7 +24,32 @@ class AlbumDigitalController {
   static async getAllAlbumDigital(request, response){ 
     try{
       const dataAllAlbumDigital = await album_digital.findAll();
-      response.status(200).render('relatorio_album_digital', { data: dataAllAlbumDigital });
+      response.status(200).render('relatorio_album_digital', { data: dataAllAlbumDigital, token: request.cookies.token });
+    } catch(error){
+      return response.status(500).json(error);
+    }
+  }
+
+  static async getFilteredAlbumDigital(request, response){
+    const filter = request.query.filter;
+    try{
+      const dataAllAlbumDigital = await album_digital.findAll({
+        where: {
+          [Op.or]: [
+            {
+              nome: filter
+            },
+            {
+              email: filter
+            },
+            {
+              cidade: filter
+            },
+          ]
+        }
+      })
+
+      return response.status(200).json(dataAllAlbumDigital);
     } catch(error){
       return response.status(500).json(error);
     }

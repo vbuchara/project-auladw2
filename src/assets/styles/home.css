@@ -104,7 +104,11 @@ main h1{
   }
 
   section{
-    flex-direction: column;
+    flex-direction: column !important;
+  }
+
+  .links{
+    grid-template-columns: 1fr;
   }
 }
 

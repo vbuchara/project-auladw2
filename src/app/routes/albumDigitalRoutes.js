@@ -90,7 +90,7 @@ const cidades = [
   "Três Lagoas",
   "Vicentina",
 ]
-  response.render('album_form', { cidades: cidades });
+  response.render('album_form', { cidades: cidades, token: request.cookies.token });
 });
 
 router.post('/album_form', upload.single('photo'), AlbumDigitalController.insertAlbumDigital);
